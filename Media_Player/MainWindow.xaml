@@ -330,21 +330,7 @@
 
         <MediaElement HorizontalAlignment="Left" Height="480" VerticalAlignment="Top" Width="854" x:Name="mediaElement" MediaOpened="mediaElement_MediaOpened"/>
 
-        <Grid Name="collapseGrid" Margin="0,-8,0,5.2" HorizontalAlignment="Left" Width="915">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="0*"/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Fill="#FF12182B" HorizontalAlignment="Center" Height="480" Margin="852,8,3.2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60"/>
-            <Image Source="Images/showList.png" Width="45" Margin="856,14,14.2,523.2" HorizontalAlignment="Center" x:Name="click" MouseDown="click_MouseDown"/>
-        </Grid>
 
-        <Grid Name="listGrid" Margin="-28,0,28,0.2">
-            <ListBox Background="#12182B" Height="429" Margin="616,51,-1.2,0" VerticalAlignment="Top" x:Name="mediaList" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="326" BorderBrush="{x:Null}" BorderThickness="0" Foreground="#FF00CEE8" FontSize="20" FontFamily="Calibri"/>
-            <Rectangle Fill="#FF00CEE8" HorizontalAlignment="Center" Height="51" Margin="616,0,-1.2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="326"/>
-            <Image Source="Images/arrow.png" Width="27" Margin="898,16,15.8,538.2" HorizontalAlignment="Center" x:Name="hideList" MouseDown="hideList_MouseDown"/>
-            <TextBlock x:Name="mediaList1" HorizontalAlignment="Left" Margin="639,10,0,0" TextWrapping="Wrap" Text="Media List" VerticalAlignment="Top" FontSize="24" FontFamily="Calibri" Foreground="#FF12182B" FontWeight="Bold"/>
-        </Grid>
 
         <Button x:Name="PlayBtn" HorizontalAlignment="Left" Margin="433,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="PlayBtn_Click" Style="{DynamicResource MouseOver}">
             <Image Source="Images/play.png" Width="50"></Image>
@@ -379,5 +365,26 @@
 
         <TextBlock HorizontalAlignment="Left" Margin="23,489,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" x:Name="terminated" Foreground="#FF00CEE8"/>
         <TextBlock HorizontalAlignment="Left" Margin="846,489,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" x:Name="totalTime" Foreground="#FF00CEE8"/>
+
+        <Grid Name="collapseGrid" Margin="0,-8,0,5.2" HorizontalAlignment="Left" Width="915">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="#FF12182B" HorizontalAlignment="Center" Height="480" Margin="852,0,3.2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60"/>
+            <Image Source="Images/showList.png" Width="45" Margin="856,14,14.2,523.2" HorizontalAlignment="Center" x:Name="click" MouseDown="burger_MouseDown"/>
+        </Grid>
+
+        <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="480" Margin="852,0,3.2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60" x:Name="guide" MouseEnter="guide_MouseEnter" MouseLeave="guide_MouseLeave"/>
+
+        <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="73" Margin="865,0,16,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60" x:Name="guide2" MouseEnter="guide_MouseEnter" MouseLeave="guide_MouseLeave" MouseDown="guide_MouseDown"/>
+
+        <Grid Name="listGrid" Margin="-28,0,28,0.2">
+            <ListBox Background="#12182B" Height="429" Margin="616,51,-1.2,0" VerticalAlignment="Top" x:Name="mediaList" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="326" BorderBrush="{x:Null}" BorderThickness="0" Foreground="#FF00CEE8" FontSize="14" FontFamily="Calibri"/>
+            <Rectangle Fill="#FF00CEE8" HorizontalAlignment="Center" Height="51" Margin="616,0,-1.2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="326"/>
+            <Image Source="Images/arrow.png" Width="27" Margin="898,16,15.8,538.2" HorizontalAlignment="Center" x:Name="hideList" MouseDown="hideList_MouseDown"/>
+            <TextBlock x:Name="mediaList1" HorizontalAlignment="Left" Margin="639,10,0,0" TextWrapping="Wrap" Text="Media List" VerticalAlignment="Top" FontSize="24" FontFamily="Calibri" Foreground="#FF12182B" FontWeight="Bold"/>
+        </Grid>
+
     </Grid>
 </Window>

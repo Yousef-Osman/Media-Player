@@ -34,7 +34,7 @@ namespace Media_Player
             timer.Tick += new EventHandler(timer_tick);
             this.Title = "GoPlayer";
             PauseBtn.Visibility = Visibility.Hidden;
-            collapseGrid.Visibility = Visibility.Visible;
+            collapseGrid.Visibility = Visibility.Hidden;
             listGrid.Visibility = Visibility.Hidden;
         }
 
@@ -53,7 +53,7 @@ namespace Media_Player
             {
                 if (mediaList.SelectedItem != null)
                 {
-                    collapseGrid.Visibility = Visibility.Visible;
+                    collapseGrid.Visibility = Visibility.Hidden;
                     listGrid.Visibility = Visibility.Hidden;
 
                     int index = mediaList.SelectedIndex;
@@ -142,7 +142,7 @@ namespace Media_Player
             mediaElement.SpeedRatio = speedSlider.Value;
         }
 
-        private void click_MouseDown(object sender, MouseButtonEventArgs e)
+        private void burger_MouseDown(object sender, MouseButtonEventArgs e)
         {
             collapseGrid.Visibility = Visibility.Hidden;
             listGrid.Visibility = Visibility.Visible;
@@ -151,7 +151,22 @@ namespace Media_Player
         private void hideList_MouseDown(object sender, MouseButtonEventArgs e)
         {
             listGrid.Visibility = Visibility.Hidden;
+            collapseGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void guide_MouseEnter(object sender, MouseEventArgs e)
+        {
             collapseGrid.Visibility = Visibility.Visible;
+        }
+
+        private void guide_MouseLeave(object sender, MouseEventArgs e)
+        {
+            collapseGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void guide_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            listGrid.Visibility = Visibility.Visible;
         }
     }
 }

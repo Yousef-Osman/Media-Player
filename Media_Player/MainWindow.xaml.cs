@@ -23,6 +23,8 @@ namespace Media_Player
         string mediaSource;
         DispatcherTimer timer;
         bool isPlaying = false;
+        string[] mediaFiles;
+        string currentPath;
 
         public MainWindow()
         {
@@ -54,8 +56,13 @@ namespace Media_Player
                     collapseGrid.Visibility = Visibility.Visible;
                     listGrid.Visibility = Visibility.Hidden;
 
-                    mediaSource = mediaList.SelectedItem.ToString();
-                    mediaElement.Source = new Uri(mediaSource);
+                    int index = mediaList.SelectedIndex;
+                    mediaSource = mediaFiles[index];
+                    if(currentPath != mediaSource)
+                    {
+                        mediaElement.Source = new Uri(mediaSource);
+                        currentPath = mediaSource;
+                    }
                     mediaElement.LoadedBehavior = MediaState.Manual;
                     mediaElement.Play();
                     isPlaying = true;
@@ -104,10 +111,11 @@ namespace Media_Player
             if (fileDialog.ShowDialog() == true)
             {
                 mediaList.Items.Clear();
-                var mediaFiles = fileDialog.FileNames;
+                mediaFiles = fileDialog.FileNames;
                 foreach (var file in mediaFiles)
                 {
-                    mediaList.Items.Add(file);
+                    string nn = System.IO.Path.GetFileNameWithoutExtension(file);
+                    mediaList.Items.Add(nn);
                 }
             }
         }

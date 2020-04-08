@@ -32,7 +32,6 @@ namespace Media_Player
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(500);
             timer.Tick += new EventHandler(timer_tick);
-            this.Title = "GoPlayer";
             PauseBtn.Visibility = Visibility.Hidden;
             collapseGrid.Visibility = Visibility.Hidden;
             listGrid.Visibility = Visibility.Hidden;

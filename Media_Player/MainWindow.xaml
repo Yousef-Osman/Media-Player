@@ -1,11 +1,13 @@
 ﻿<Window x:Class="Media_Player.MainWindow"
+
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Media_Player"
         mc:Ignorable="d"
-        Title="MainWindow" Height="612" Width="916" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="PlayerPit" Height="612" Width="854" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Icon="Images/logoIcon.png">
 
 
     <Window.Resources>
@@ -322,7 +324,7 @@
     </Window.Resources>
 
 
-    <Grid Background="#01050f"  AllowDrop="True" Margin="-3,0,0,0.2" HorizontalAlignment="Left" Width="941">
+    <Grid Background="#01050f"  AllowDrop="True" Margin="-3,0,0,0" HorizontalAlignment="Left" Width="854">
 
         <Grid HorizontalAlignment="Left" Height="480" VerticalAlignment="Top" Width="854" Background="#040c1c">
             <Image Source="Images/logo.png" Stretch="Fill" Width="360" Height="200"/>
@@ -332,57 +334,51 @@
 
 
 
-        <Button x:Name="PlayBtn" HorizontalAlignment="Left" Margin="433,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="PlayBtn_Click" Style="{DynamicResource MouseOver}">
+        <Button x:Name="PlayBtn" HorizontalAlignment="Left" Margin="402,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="PlayBtn_Click" Style="{DynamicResource MouseOver}" Grid.RowSpan="2">
             <Image Source="Images/play.png" Width="50"></Image>
         </Button>
-        <Button x:Name="PauseBtn" HorizontalAlignment="Left" Margin="433
-                ,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="PlayBtn_Click" Style="{DynamicResource MouseOver}">
+        <Button x:Name="PauseBtn" HorizontalAlignment="Left" Margin="402,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="PlayBtn_Click" Style="{DynamicResource MouseOver}" Grid.RowSpan="2">
             <Image Source="Images/pause.png" Width="50"></Image>
         </Button>
-        <Button x:Name="ForwardBtn" HorizontalAlignment="Left" Margin="492
-                ,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ForwardBtn_Click" Style="{DynamicResource MouseOver}">
+        <Button x:Name="ForwardBtn" HorizontalAlignment="Left" Margin="461
+                ,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ForwardBtn_Click" Style="{DynamicResource MouseOver}" Grid.RowSpan="2">
             <Image Source="Images/forward.png" Width="50"></Image>
         </Button>
-        <Button x:Name="RewindBtn" HorizontalAlignment="Left" Margin="377
-                ,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="RewindBtn_Click" Style="{DynamicResource MouseOver}">
+        <Button x:Name="RewindBtn" HorizontalAlignment="Left" Margin="346
+                ,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="RewindBtn_Click" Style="{DynamicResource MouseOver}" Grid.RowSpan="2">
             <Image Source="Images/backward.png" Width="50"></Image>
         </Button>
-        <Button x:Name="StopBtn" HorizontalAlignment="Left" Margin="542
-                ,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="StopBtn_Click" Style="{DynamicResource MouseOver}">
+        <Button x:Name="StopBtn" HorizontalAlignment="Left" Margin="511
+                ,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="StopBtn_Click" Style="{DynamicResource MouseOver}" Grid.RowSpan="2">
             <Image Source="Images/stop.png" Width="50"></Image>
         </Button>
-        <Button x:Name="LoadBtn" HorizontalAlignment="Left" Margin="327,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="LoadBtn_Click" Style="{DynamicResource MouseOver}">
+        <Button x:Name="LoadBtn" HorizontalAlignment="Left" Margin="296,515,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="LoadBtn_Click" Style="{DynamicResource MouseOver}" Grid.RowSpan="2">
             <Image Source="Images/load.png" Width="50"></Image>
         </Button>
 
 
-        <Slider HorizontalAlignment="Center" Margin="86,493,114,0" VerticalAlignment="Top" Width="741" x:Name="mediaSlider" ValueChanged="mediaSlider_ValueChanged" Foreground="{x:Null}" Style="{DynamicResource SliderStyle}" BorderBrush="Transparent"/>
-        <Slider HorizontalAlignment="Left" Margin="769,530,0,0" VerticalAlignment="Top" Width="118" x:Name="volumSlider" Maximum="1" LargeChange="0.1" SmallChange="0.01" Value="1" ValueChanged="volumSlider_ValueChanged" TickPlacement="Both" Foreground="Black" Style="{DynamicResource SliderStyle}"/>
-        <Image Source="Images/volum.png" Width="50" Height="50" Margin="723,515,168,17.2"></Image>
-        <Slider HorizontalAlignment="Left" Margin="63,530,0,0" VerticalAlignment="Top" Maximum="3" Value="1" TickPlacement="Both" Width="118
-                " x:Name="speedSlider" ValueChanged="speedSlider_ValueChanged" LargeChange="0.25" Foreground="black" Style="{DynamicResource SliderStyle}"/>
-        <Image Source="Images/speed.png" Width="40" Height="40" Margin="19,520,882,22.2"></Image>
+        <Slider HorizontalAlignment="Center" Margin="84,493.5,84,0" VerticalAlignment="Top" Width="690" x:Name="mediaSlider" ValueChanged="mediaSlider_ValueChanged" Foreground="{x:Null}" Style="{DynamicResource SliderStyle}" BorderBrush="Transparent"/>
+        <Slider HorizontalAlignment="Left" Margin="710,530,0,0" VerticalAlignment="Top" Width="118" x:Name="volumSlider" Maximum="1" LargeChange="0.1" SmallChange="0.01" Value="1" ValueChanged="volumSlider_ValueChanged" TickPlacement="Both" Foreground="Black" Style="{DynamicResource SliderStyle}"/>
+        <Image Source="Images/volum.png" Height="50" Margin="660,515,144,17.4"/>
+        <Slider HorizontalAlignment="Left" Margin="66,530,0,0" VerticalAlignment="Top" Maximum="3" Value="1" TickPlacement="Both" Width="118" x:Name="speedSlider" ValueChanged="speedSlider_ValueChanged" LargeChange="0.25" Foreground="black" Style="{DynamicResource SliderStyle}"/>
+        <Image Source="Images/speed.png" Width="40" Height="40" Margin="19,520,795,22.4"></Image>
 
-        <TextBlock HorizontalAlignment="Left" Margin="23,489,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" x:Name="terminated" Foreground="#FF00CEE8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="846,489,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" x:Name="totalTime" Foreground="#FF00CEE8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="23,490,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" x:Name="terminated" Foreground="#FF00CEE8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="785,490,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" x:Name="totalTime" Foreground="#FF00CEE8"/>
 
-        <Grid Name="collapseGrid" Margin="0,-8,0,5.2" HorizontalAlignment="Left" Width="915">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="0*"/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Fill="#FF12182B" HorizontalAlignment="Center" Height="480" Margin="852,0,3.2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60"/>
-            <Image Source="Images/showList.png" Width="45" Margin="856,14,14.2,523.2" HorizontalAlignment="Center" x:Name="click" MouseDown="burger_MouseDown"/>
+        <Grid Name="collapseGrid" Margin="0,0,0,0" HorizontalAlignment="Left" Width="854">
+            <Rectangle Fill="#FF12182B" HorizontalAlignment="Center" Height="482" Margin="793,0,1,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60"/>
+            <Image Source="Images/showList.png" Width="45" Margin="780,14,0,523.2" HorizontalAlignment="Center" x:Name="click" MouseDown="burger_MouseDown"/>
         </Grid>
 
-        <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="480" Margin="852,0,3.2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60" x:Name="guide" MouseEnter="guide_MouseEnter" MouseLeave="guide_MouseLeave"/>
+        <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="480" Margin="772,0,2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="80" x:Name="guide" MouseEnter="guide_MouseEnter" MouseLeave="guide_MouseLeave"/>
 
-        <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="73" Margin="865,0,16,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60" x:Name="guide2" MouseEnter="guide_MouseEnter" MouseLeave="guide_MouseLeave" MouseDown="guide_MouseDown"/>
+        <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="73" Margin="772,0,2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="80" x:Name="guide2" MouseEnter="guide_MouseEnter" MouseLeave="guide_MouseLeave" MouseDown="guide_MouseDown"/>
 
-        <Grid Name="listGrid" Margin="-28,0,28,0.2">
-            <ListBox Background="#12182B" Height="429" Margin="616,51,-1.2,0" VerticalAlignment="Top" x:Name="mediaList" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="326" BorderBrush="{x:Null}" BorderThickness="0" Foreground="#FF00CEE8" FontSize="14" FontFamily="Calibri"/>
-            <Rectangle Fill="#FF00CEE8" HorizontalAlignment="Center" Height="51" Margin="616,0,-1.2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="326"/>
-            <Image Source="Images/arrow.png" Width="27" Margin="898,16,15.8,538.2" HorizontalAlignment="Center" x:Name="hideList" MouseDown="hideList_MouseDown"/>
+        <Grid Name="listGrid" Margin="0,0,0,0">
+            <ListBox Background="#12182B" Height="429" Margin="616,51,0,0" VerticalAlignment="Top" x:Name="mediaList" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="240" BorderBrush="{x:Null}" BorderThickness="0" Foreground="#FF00CEE8" FontSize="14" FontFamily="Calibri"/>
+            <Rectangle Fill="#FF00CEE8" HorizontalAlignment="Left" Height="51" Margin="616,0,0,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="240"/>
+            <Image Source="Images/arrow.png" Width="24" Margin="790,0,0,520" HorizontalAlignment="Center" x:Name="hideList" MouseDown="hideList_MouseDown" StretchDirection="DownOnly"/>
             <TextBlock x:Name="mediaList1" HorizontalAlignment="Left" Margin="639,10,0,0" TextWrapping="Wrap" Text="Media List" VerticalAlignment="Top" FontSize="24" FontFamily="Calibri" Foreground="#FF12182B" FontWeight="Bold"/>
         </Grid>
 

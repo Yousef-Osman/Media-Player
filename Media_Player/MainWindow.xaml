@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Media_Player"
         mc:Ignorable="d"
-        Title="PlayerPit" Height="612" Width="854" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="PlayerPit" Height="640" Width="854" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Icon="Images/logoIcon.png">
 
 
@@ -359,16 +359,17 @@
 
         <Slider HorizontalAlignment="Center" Margin="84,493.5,84,0" VerticalAlignment="Top" Width="690" x:Name="mediaSlider" ValueChanged="mediaSlider_ValueChanged" Foreground="{x:Null}" Style="{DynamicResource SliderStyle}" BorderBrush="Transparent"/>
         <Slider HorizontalAlignment="Left" Margin="710,530,0,0" VerticalAlignment="Top" Width="118" x:Name="volumSlider" Maximum="1" LargeChange="0.1" SmallChange="0.01" Value="1" ValueChanged="volumSlider_ValueChanged" TickPlacement="Both" Foreground="Black" Style="{DynamicResource SliderStyle}"/>
-        <Image Source="Images/volum.png" Height="50" Margin="660,515,144,17.4"/>
+        <Image Source="Images/volum.png" Height="50" Margin="660,515,144,17.4" VerticalAlignment="Top" MouseDown="Image_MouseDown" Name="UnMuted"/>
+        <Image Source="Images/muted.png" Height="50" Margin="660,515,144,17.4" VerticalAlignment="Top" MouseDown="Image_MouseDown" Name="Muted"/>
         <Slider HorizontalAlignment="Left" Margin="66,530,0,0" VerticalAlignment="Top" Maximum="3" Value="1" TickPlacement="Both" Width="118" x:Name="speedSlider" ValueChanged="speedSlider_ValueChanged" LargeChange="0.25" Foreground="black" Style="{DynamicResource SliderStyle}"/>
-        <Image Source="Images/speed.png" Width="40" Height="40" Margin="19,520,795,22.4"></Image>
+        <Image Source="Images/speed.png" Width="40" Height="40" Margin="19,520,795,22.4" VerticalAlignment="Top"></Image>
 
         <TextBlock HorizontalAlignment="Left" Margin="23,490,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" x:Name="terminated" Foreground="#FF00CEE8"/>
         <TextBlock HorizontalAlignment="Left" Margin="785,490,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" x:Name="totalTime" Foreground="#FF00CEE8"/>
 
         <Grid Name="collapseGrid" Margin="0,0,0,0" HorizontalAlignment="Left" Width="854">
-            <Rectangle Fill="#FF12182B" HorizontalAlignment="Center" Height="482" Margin="793,0,1,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="60"/>
-            <Image Source="Images/showList.png" Width="45" Margin="780,14,0,523.2" HorizontalAlignment="Center" x:Name="click" MouseDown="burger_MouseDown"/>
+            <Rectangle Fill="#FF12182B" HorizontalAlignment="Center" Height="482" Margin="799,-2,1,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="54"/>
+            <Image Source="Images/showList.png" Width="35" Margin="803,-8,16,555.4" HorizontalAlignment="Center" x:Name="click" MouseDown="burger_MouseDown"/>
         </Grid>
 
         <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="480" Margin="772,0,2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="80" x:Name="guide" MouseEnter="guide_MouseEnter" MouseLeave="guide_MouseLeave"/>
@@ -376,11 +377,16 @@
         <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="73" Margin="772,0,2,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="80" x:Name="guide2" MouseEnter="guide_MouseEnter" MouseLeave="guide_MouseLeave" MouseDown="guide_MouseDown"/>
 
         <Grid Name="listGrid" Margin="0,0,0,0">
-            <ListBox Background="#12182B" Height="429" Margin="616,51,0,0" VerticalAlignment="Top" x:Name="mediaList" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="240" BorderBrush="{x:Null}" BorderThickness="0" Foreground="#FF00CEE8" FontSize="14" FontFamily="Calibri"/>
-            <Rectangle Fill="#FF00CEE8" HorizontalAlignment="Left" Height="51" Margin="616,0,0,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="240"/>
-            <Image Source="Images/arrow.png" Width="24" Margin="790,0,0,520" HorizontalAlignment="Center" x:Name="hideList" MouseDown="hideList_MouseDown" StretchDirection="DownOnly"/>
-            <TextBlock x:Name="mediaList1" HorizontalAlignment="Left" Margin="639,10,0,0" TextWrapping="Wrap" Text="Media List" VerticalAlignment="Top" FontSize="24" FontFamily="Calibri" Foreground="#FF12182B" FontWeight="Bold"/>
+            <ListBox Background="#12182B" Height="448" Margin="616,32,-1.6,0" VerticalAlignment="Top" x:Name="mediaList" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="240" BorderBrush="{x:Null}" BorderThickness="0" Foreground="#FF00CEE8" FontSize="14" FontFamily="Calibri"/>
+            <Rectangle Fill="#FF00CEE8" HorizontalAlignment="Left" Height="32" Margin="616,0,-1.6,0" Stroke="Transparent" StrokeThickness="0" VerticalAlignment="Top" Width="240"/>
+            <Image Source="Images/arrow.png" Width="24" Height="50" Margin="813,-4,17.4,564.4" HorizontalAlignment="Center" x:Name="hideList" MouseDown="hideList_MouseDown" StretchDirection="DownOnly"/>
+            <TextBlock x:Name="mediaList1" HorizontalAlignment="Left" Margin="634,5,0,0" TextWrapping="Wrap" Text="Media List" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Foreground="#FF12182B" FontWeight="Bold"/>
         </Grid>
+
+
+        <Rectangle Fill="#040c1c" HorizontalAlignment="Left" Height="40" Margin="0,574,0,0" Stroke="Black" VerticalAlignment="Top" Width="854"/>
+        <TextBlock HorizontalAlignment="Left" Margin="23,579,0,0.8" TextWrapping="Wrap" Text="" x:Name="nowPlaying" Foreground="#FF00CEE8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="74,579,0,0.4" TextWrapping="Wrap" Text="" x:Name="mediaFileName" Foreground="#FF00CEE8"/>
 
     </Grid>
 </Window>

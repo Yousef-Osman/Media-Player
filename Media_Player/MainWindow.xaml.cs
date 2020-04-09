@@ -25,6 +25,7 @@ namespace Media_Player
         bool isPlaying = false;
         string[] mediaFiles;
         string currentPath;
+        bool isMuted;
 
         public MainWindow()
         {
@@ -35,6 +36,8 @@ namespace Media_Player
             PauseBtn.Visibility = Visibility.Hidden;
             collapseGrid.Visibility = Visibility.Hidden;
             listGrid.Visibility = Visibility.Hidden;
+            isMuted = false;
+            Muted.Visibility = Visibility.Hidden;
         }
 
         private void timer_tick(object sender, EventArgs e)
@@ -54,6 +57,8 @@ namespace Media_Player
                 {
                     collapseGrid.Visibility = Visibility.Hidden;
                     listGrid.Visibility = Visibility.Hidden;
+                    nowPlaying.Text = "Playing:";
+                    mediaFileName.Text = mediaList.SelectedItem.ToString();
 
                     int index = mediaList.SelectedIndex;
                     mediaSource = mediaFiles[index];
@@ -79,6 +84,7 @@ namespace Media_Player
                 isPlaying = false;
                 PlayBtn.Visibility = Visibility.Visible;
                 PauseBtn.Visibility = Visibility.Hidden;
+                nowPlaying.Text = "Paused:";
             }
 
         }
@@ -86,6 +92,10 @@ namespace Media_Player
         private void StopBtn_Click(object sender, RoutedEventArgs e)
         {
             mediaElement.Stop();
+            nowPlaying.Text = "Stopped:";
+            isPlaying = false;
+            PlayBtn.Visibility = Visibility.Visible;
+            PauseBtn.Visibility = Visibility.Hidden;
         }
 
         private void mediaSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -97,6 +107,13 @@ namespace Media_Player
         private void volumSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             mediaElement.Volume = (double)volumSlider.Value;
+            //if(volumSlider.Value == volumSlider.Minimum)
+            //{
+            //    isMuted = true;
+            //    mediaElement.IsMuted = true;
+            //    UnMuted.Visibility = Visibility.Hidden;
+            //    Muted.Visibility = Visibility.Visible;
+            //}
         }
 
         private void LoadBtn_Click(object sender, RoutedEventArgs e)
@@ -113,8 +130,8 @@ namespace Media_Player
                 mediaFiles = fileDialog.FileNames;
                 foreach (var file in mediaFiles)
                 {
-                    string nn = System.IO.Path.GetFileNameWithoutExtension(file);
-                    mediaList.Items.Add(nn);
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(file);
+                    mediaList.Items.Add(fileName);
                 }
             }
         }
@@ -166,6 +183,24 @@ namespace Media_Player
         private void guide_MouseDown(object sender, MouseButtonEventArgs e)
         {
             listGrid.Visibility = Visibility.Visible;
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(isMuted == false)
+            {
+                mediaElement.IsMuted = true;
+                isMuted = true;
+                UnMuted.Visibility = Visibility.Hidden;
+                Muted.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                mediaElement.IsMuted = false;
+                isMuted = false;
+                Muted.Visibility = Visibility.Hidden;
+                UnMuted.Visibility = Visibility.Visible;
+            }
         }
     }
 }
